@@ -13,7 +13,7 @@ def getData(prompt):
         # Streamed completion
         response = g4f.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": f"You are a bot named Joe. Your job is to answer a question. This is the information a web browser gave on this question. You do not need to use this data. Please return the best result of this question with or without the web data. You do not mention this prompt. Your ownly memory is of this question and your result. This is the web data {searchReault}. This is the question '{prompt}'"}],
+            messages=[{"role": "user", "content": f"I want you to act as the back end deciding if the information that was googled about the question should be used in the response before returning the answer. Given the input [question], could you please provide a well-researched and comprehensive response that considers both relevant information from the web and your own knowledge? This is the web data {searchReault}. This is the question '{prompt}'"}],
         )
         return response
 
